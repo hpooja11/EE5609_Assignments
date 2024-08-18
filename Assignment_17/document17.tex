@@ -1,0 +1,248 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+
+\usepackage{setspace}
+\usepackage{gensymb}
+
+\singlespacing
+\usepackage{pstricks}
+\usepackage[cmex10]{amsmath}
+%\usepackage{amsthm}
+%\interdisplaylinepenalty=2500
+%\savesymbol{iint}
+%\usepackage{txfonts}
+%\restoresymbol{TXF}{iint}
+%\usepackage{wasysym}
+\usepackage{amsthm}
+%\usepackage{iithtlc}
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{stfloats}
+\usepackage{bm}
+\usepackage{cite}
+\usepackage{cases}
+\usepackage{subfig}
+%\usepackage{xtab}
+\usepackage{longtable}
+\usepackage{multirow}
+%\usepackage{algorithm}
+%\usepackage{algpseudocode}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{caption}
+\usepackage{steinmetz}
+\usepackage{tikz}
+%\usepackage{circuitikz}
+\usepackage{verbatim}
+\usepackage{tfrupee}
+\usepackage[breaklinks=true]{hyperref}
+%\usepackage{stmaryrd}
+\usepackage{tkz-euclide} % loads  TikZ and tkz-base
+%\usetkzobj{all}
+\usetikzlibrary{calc,math}
+\usepackage{listings}
+\usepackage{color}                                            %%
+\usepackage{array}                                            %%
+\usepackage{longtable}                                        %%
+\usepackage{calc}                                             %%
+\usepackage{multirow}                                         %%
+\usepackage{hhline}                                           %%
+\usepackage{ifthen}                                           %%
+%optionally (for landscape tables embedded in another document): %%
+\usepackage{lscape}     
+%\usepackage{multicol}
+\usepackage{chngcntr}
+\usepackage{makecell}
+\usepackage{booktabs, threeparttable}
+\usepackage{lipsum}
+%\usepackage{enumerate}
+%\usepackage{wasysym}
+%\newcounter{MYtempeqncnt}
+\DeclareMathOperator*{\Res}{Res}
+%\renewcommand{\baselinestretch}{2}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+\def\inputGnumericTable{}                                 %%
+\newcommand\myemptypage{
+	\null
+	\thispagestyle{empty}
+	\addtocounter{page}{-1}
+	\newpage
+}
+\lstset{
+	%language=C,
+	frame=single, 
+	breaklines=true,
+	columns=fullflexible
+}
+\usepackage{amssymb}
+\usepackage{stackengine}
+\usepackage{scalerel}
+\usepackage{graphicx}
+\usepackage{tabularx, ragged2e}
+\newcolumntype{C}{>{ \Centering \arraybackslash}X} %
+\frenchspacing
+\newlength\lthk
+\setlength\lthk{.1ex}
+\def\bline{\rule{2ex}{\lthk}}
+\def\slash{\rotatebox{60}{\bline}}
+\def\parallelogram{\stackMath\scalerel*{%
+		\def\stackalignment{l}{\stackunder[-.5\lthk]{%
+				\def\stackalignment{r}\stackon[-.5\lthk]{\slash\rule{.866ex}{0ex}\slash}{\bline}}%
+			{\bline}}}{\square}%
+}
+
+\begin{document}
+	%
+	
+	
+	\newtheorem{theorem}{Theorem}[section]
+	\newtheorem{problem}{Problem}
+	\newtheorem{proposition}{Proposition}[section]
+	\newtheorem{lemma}{Lemma}[section]
+	\newtheorem{corollary}[theorem]{Corollary}
+	\newtheorem{example}{Example}[section]
+	\newtheorem{definition}[problem]{Definition}
+	
+	\newcommand{\BEQA}{\begin{eqnarray}}
+		\newcommand{\EEQA}{\end{eqnarray}}
+	\newcommand{\define}{\stackrel{\triangle}{=}}
+	\bibliographystyle{IEEEtran}
+	%\bibliographystyle{ieeetr}
+	\providecommand{\mbf}{\mathbf}
+	\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+	\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+	\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+	\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+	\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+	\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+	\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+	\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+	\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+	\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+	\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+	\theoremstyle{remark}
+	\newtheorem{rem}{Remark}
+	\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+	\providecommand{\abs}[1]{\left\vert#1\right\vert}
+	\providecommand{\res}[1]{\Res\displaylimits_{#1}} 
+	\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+	%\providecommand{\norm}[1]{\lVert#1\rVert}
+	\providecommand{\mtx}[1]{\mathbf{#1}}
+	\providecommand{\mean}[1]{E\left[ #1 \right]}
+	\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
+	%\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
+	\providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
+	%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
+	\newcommand{\solution}{\noindent \textbf{Solution: }}
+	\newcommand{\cosec}{\,\text{cosec}\,}
+	\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
+	\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+	\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+	%\numberwithin{equation}{section}
+	\numberwithin{equation}{subsection}
+	%\numberwithin{problem}{section}
+	%\numberwithin{definition}{section}
+	\makeatletter
+	\@addtoreset{figure}{problem}
+	\makeatother
+	\let\StandardTheFigure\thefigure
+	\let\vec\mathbf
+	%\renewcommand{\thefigure}{\theproblem.\arabic{figure}}
+	\renewcommand{\thefigure}{\theproblem}
+	%\setlist[enumerate,1]{before=\renewcommand\theequation{\theenumi.\arabic{equation}}
+	%\counterwithin{equation}{enumi}
+	%\renewcommand{\theequation}{\arabic{subsection}.\arabic{equation}}
+	\def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
+	\def\rightbox#1{\makebox[0in][r]{#1}}
+	\def\centbox#1{\makebox[0in]{#1}}
+	\def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
+	\def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
+	\vspace{3cm}
+	\title{Assignment-17}
+	\author{Pooja H}
+	\maketitle
+	\newpage
+	\bigskip
+	\renewcommand{\thefigure}{\theenumi}
+	\renewcommand{\thetable}{\theenumi}
+	\begin{abstract}
+		In this document, we solve for basis of the vector space of a transformation matrix.
+	\end{abstract}
+	%Download all python codes from 
+	%\begin{lstlisting}
+	%	https://github.com/poojah15/EE5609_Assignments/tree/master/Assignment_13
+	%\end{lstlisting}
+	Download all latex-tikz codes from 
+\begin{lstlisting}
+https://github.com/poojah15/EE5609_Assignments/tree/master/Assignment_17
+\end{lstlisting}
+	\section{Problem Statement}
+	
+	
+	
+Let ${\vec{P}_{3}}$ be the vector space of polynomials with real coefficients and of at most degree 3. Consider the linear map $T:\vec{P}_3 \rightarrow \vec{P}_3$ defined by $T(p(x)) = p(x+1)+p(x-1)$. Which of the following does the matrix of T (with respect to the standard basis $\vec{B} =\{1, x, x^2, x^3\}$ of $\vec{P}_3$) satisfy?
+\begin{enumerate}
+\item  $\det(T)$ = 0 
+\item $(T-2\vec{I})^4=0$ but $(T-2\vec{I})^3 \ne 0$
+\item $(T-2\vec{I})^3=0$ but $(T-2\vec{I})^2 \ne 0$
+\item 2 is an eigenvalue with multiplicity 4.
+\end{enumerate}
+\section{Solution}
+Given 
+\begin{align}
+T(p(x)) = p(x+1)+p(x-1).
+\end{align}
+The matrix of T with respect to the standard basis $\vec{B}=\{1, x, x^2, x^3\}$ is given by:
+\begin{align}
+p(x)=1 &\implies T(1) = 1 + 1 \nonumber \\
+&= 2\\
+p(x)=x &\implies T(x) = x+1 + x-1 \nonumber\\
+&= 2x \\
+p(x)=x^2 &\implies T(x^2) = (x+1)^2 + (x-1)^2 \nonumber\\
+&= 2 + 2x^2 \\
+p(x)=x^3 &\implies T(x^3) = (x+1)^3 + (x-1)^3 \nonumber\\
+&= 6x + 2x^3 
+\end{align}
+
+Hence, matrix of $T$ is:
+\begin{align}
+	\myvec{2 & 0 & 2 & 0 \\ 0 & 2 & 0 & 6\\ 0 & 0 & 2 & 0\\0 & 0 & 0 & 2}\label{Tmatrix}
+\end{align} 
+\section{Answers for different cases}
+\begin{table}[h]
+	\begin{tabular}{|m{3cm}|m{5cm}|}
+		\hline
+		&\\
+		$\det(T)$ = 0 
+		& \textbf{False}. From \eqref{Tmatrix}, it is found that the determinant is not zero as the eigenvalues are nonzero.\\
+		& \\
+		\hline
+		&\\
+		$(T-2\vec{I})^4=0$ but $(T-2\vec{I})^3 \ne 0$
+		& \textbf{False}. 
+		$(T-2\vec{I})$
+		 = $\myvec{0 & 0 & 2 & 0 \\ 0 & 0 & 0 & 6\\ 0 & 0 & 0 & 0\\0 & 0 & 0 & 0}$\\
+		& $\implies (T - 2\vec{I})^2 = 0$\\
+		&and hence $(T-2\vec{I})^4=0$ and $(T-2\vec{I})^3 = 0$ \\
+		&\\
+		\hline
+		&\\
+	    $(T-2\vec{I})^3=0$ but $(T-2\vec{I})^2 \ne 0$
+		& \textbf{False}. Because $(T-2\vec{I})^3=0$ and $(T-2\vec{I})^2 = 0$\\
+		&\\
+		\hline
+		&\\
+		2 is an eigenvalue with multiplicity 4.
+		& \textbf{True}. It is noted that the matrix of $T$ is an upper triangular matrix having the value 2 along its principal diagonal and hence 2 is an eigenvalue with algebraic multiplicity 4.\\
+		\hline
+	\end{tabular}
+\end{table}
+\end{document}

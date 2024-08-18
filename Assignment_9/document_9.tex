@@ -1,0 +1,316 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+
+\usepackage{setspace}
+\usepackage{gensymb}
+
+\singlespacing
+
+
+\usepackage[cmex10]{amsmath}
+%\usepackage{amsthm}
+%\interdisplaylinepenalty=2500
+%\savesymbol{iint}
+%\usepackage{txfonts}
+%\restoresymbol{TXF}{iint}
+%\usepackage{wasysym}
+\usepackage{amsthm}
+%\usepackage{iithtlc}
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{stfloats}
+\usepackage{bm}
+\usepackage{cite}
+\usepackage{cases}
+\usepackage{subfig}
+%\usepackage{xtab}
+\usepackage{longtable}
+\usepackage{multirow}
+%\usepackage{algorithm}
+%\usepackage{algpseudocode}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{steinmetz}
+\usepackage{tikz}
+%\usepackage{circuitikz}
+\usepackage{verbatim}
+\usepackage{tfrupee}
+\usepackage[breaklinks=true]{hyperref}
+%\usepackage{stmaryrd}
+\usepackage{tkz-euclide} % loads  TikZ and tkz-base
+%\usetkzobj{all}
+\usetikzlibrary{calc,math}
+\usepackage{listings}
+   \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+  %optionally (for landscape tables embedded in another document): %%
+    \usepackage{lscape}     
+%\usepackage{multicol}
+\usepackage{chngcntr}
+%\usepackage{enumerate}
+
+%\usepackage{wasysym}
+%\newcounter{MYtempeqncnt}
+\DeclareMathOperator*{\Res}{Res}
+%\renewcommand{\baselinestretch}{2}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+\def\inputGnumericTable{}                                 %%
+
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+
+\begin{document}
+%
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}[problem]{Definition}
+
+\newcommand{\BEQA}{\begin{eqnarray}}
+\newcommand{\EEQA}{\end{eqnarray}}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+\bibliographystyle{IEEEtran}
+%\bibliographystyle{ieeetr}
+\providecommand{\mbf}{\mathbf}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+\providecommand{\abs}[1]{\left\vert#1\right\vert}
+\providecommand{\res}[1]{\Res\displaylimits_{#1}} 
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+%\providecommand{\norm}[1]{\lVert#1\rVert}
+\providecommand{\mtx}[1]{\mathbf{#1}}
+\providecommand{\mean}[1]{E\left[ #1 \right]}
+\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
+%\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
+\providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
+	%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\newcommand{\cosec}{\,\text{cosec}\,}
+\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+%\numberwithin{equation}{section}
+\numberwithin{equation}{subsection}
+%\numberwithin{problem}{section}
+%\numberwithin{definition}{section}
+\makeatletter
+\@addtoreset{figure}{problem}
+\makeatother
+\let\StandardTheFigure\thefigure
+\let\vec\mathbf
+%\renewcommand{\thefigure}{\theproblem.\arabic{figure}}
+\renewcommand{\thefigure}{\theproblem}
+%\setlist[enumerate,1]{before=\renewcommand\theequation{\theenumi.\arabic{equation}}
+%\counterwithin{equation}{enumi}
+%\renewcommand{\theequation}{\arabic{subsection}.\arabic{equation}}
+\def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
+     \def\rightbox#1{\makebox[0in][r]{#1}}
+     \def\centbox#1{\makebox[0in]{#1}}
+     \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
+     \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
+\vspace{3cm}
+\title{Assignment-9}
+\author{Pooja H \\ }
+\maketitle
+\newpage
+\bigskip
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{\theenumi}
+\begin{abstract}
+In this document, we check whether the given lines intersect. If they don't, then find the closest points using SVD.
+\end{abstract}
+Download all Python codes from 
+\begin{lstlisting}
+	https://github.com/poojah15/EE5609_Assignments/tree/master/Assignment_9
+\end{lstlisting}
+Download all latex-tikz codes from 
+\begin{lstlisting}
+https://github.com/poojah15/EE5609_Assignments/tree/master/Assignment_9
+\end{lstlisting}
+\section{Problem Statement}
+If the lines
+\begin{align}
+	\frac{x - 1}{-3} = \frac{y - 2}{2k} = \frac{z - 3}{2},\\
+	\frac{x - 3}{3k} = \frac{y - 1}{1} = \frac{z - 6}{-5},
+\end{align}
+find the value of k
+\section{Solution}
+In the given problem,
+\begin{align}
+	\vec{A}_1 = \myvec{1 \\ 2 \\ 3}, \vec{m}_1 = \myvec{-3\\ 2k\\ 2}, \vec{A}_2 = \myvec{3\\ 1 \\ 6}, \vec{m}_2 = \myvec{3k \\ 1 \\ -5}
+\end{align}
+To find the value of k, let's assume that the given lines are perpendicular to each other. Then the dot product of their direction vectors should be 0. i.e.,
+\begin{align}
+	\vec{m}_1 \vec{m}_2 &= 0\\
+	\implies \myvec{-3\\ 2k\\ 2} \myvec{3k \\ 1 \\ -5} &= 0\\
+	\implies k &= -\frac{10}{7}
+\end{align}
+The lines will intersect if 
+\begin{align}
+\vec{A}_1 + \lambda_1 \vec{m}_1 &= \vec{A}_2 + \lambda_2 \vec{m}_2 \\
+\implies \myvec{1 \\ 2 \\ 3} + \lambda_1\myvec{-3\\ 2k\\ 2} &= \myvec{3\\ 1 \\ 6} + \lambda_2\myvec{3k \\ 1 \\ -5}\\
+\implies \lambda_1\myvec{-3\\ 2k\\ 2} - \lambda_2\myvec{3k \\ 1 \\ -5} &= \myvec{3\\ 1 \\ 6}  - \myvec{1 \\ 2 \\ 3}\\
+\implies \myvec{-3 & 3k \\ 2k & 1\\ 2 & -5} \myvec{\lambda_1 \\ \lambda_2} &= \myvec{2 \\ -1 \\ 3}\\
+\implies \myvec{-3 & -\frac{30}{7} \\ -\frac{20}{7} & 1\\ 2 & -5} \myvec{\lambda_1 \\ \lambda_2} &= \myvec{2 \\ -1 \\ 3} \label{eql1l2}
+\end{align}
+Row reducing the augmented matrix, 
+\begin{align}
+	\myvec{-3 & -\frac{30}{7} & 2\\ -\frac{20}{7} & 1 & -1\\ 2 & -5 & 3} \xleftrightarrow[R_2 \leftarrow R_2 + \frac{20}{7}R_1]{R_1 \leftarrow -\frac{R_1}{3}} \myvec{1 & \frac{10}{7} & -\frac{2}{3}\\ 0 & \frac{249}{49} & -\frac{61}{21}\\ 2 & -5 & 3}\\
+	\xleftrightarrow[R_2 \leftarrow \frac{49}{249}R_2]{R_3 \leftarrow R_3 - 2R_1} \myvec{1 & \frac{10}{7} & -\frac{2}{3}\\ 0 & \frac{249}{49} & -\frac{61}{21}\\ 2 & -5 & 3}\\
+	\xleftrightarrow[R_2 \leftarrow \frac{49}{249}R_2]{R_3 \leftarrow R_3 - 2R_1} \myvec{1 & \frac{10}{7} & -\frac{2}{3}\\ 0 & 1 & -\frac{427}{747}\\ 0 & -\frac{55}{7} & \frac{13}{3}}\\
+	\xleftrightarrow[R_3 \leftarrow -\frac{747}{118}R_3]{R_3 \leftarrow R_3 +\frac{55}{7}R_2} \myvec{1 & \frac{10}{7} & -\frac{2}{3}\\ 0 & 1 & -\frac{427}{747}\\ 0 & 0& 1}\\
+	\xleftrightarrow[R_1 \leftarrow R_1 + \frac{2}{3}R_3 - \frac{10}{7}R_2]{R_2 \leftarrow R_2 +\frac{427}{47}R_3} \myvec{1 & 0 & 0\\ 0 & 1 & 0\\ 0 & 0& 1}
+\end{align}
+The above matrix has $rank = 3$. Hence, the lines do not intersect which implies that the given lines are skew lines. To find the closest points using SVD, consider the equation \eqref{eql1l2} which can be expressed as 
+\begin{align}
+	\vec{M}\vec{x}&=\vec{b}\label{mx=b}
+\end{align}
+By singular value decomposition $\vec{M}$
+can be expressed as 
+\begin{align}
+	\vec{M}&=\vec{U}\vec{S}\vec{V}^T\label{main}
+\end{align}
+where the columns of $\vec{V}$ are the eigenvectors of $\vec{M}^T\vec{M}$, the columns of $\vec{U}$ are the eigenvectors of $\vec{M}\vec{M}^T$ and $\vec{S}$ is diagonal matrix of singular value of eigenvalues of $\vec{M}^T\vec{M}$.
+\begin{align}
+	\vec{M}^T\vec{M} &=\myvec{\frac{1037}{49} & 0\\ 0 & \frac{2174}{49}}\\
+	\vec{M}\vec{M}^T &=\myvec{\frac{1341}{49} & \frac{30}{7} & \frac{108}{7}\\ \frac{30}{7} & \frac{449}{49} & -\frac{75}{7} \\ \frac{108}{7} & -\frac{75}{7} & 29}
+\end{align}
+\subsection{To get $\vec{V}$ and $\vec{S}$ }
+The characteristic equation of $\vec{M}^T\vec{M}$ is obtained by evaluating the determinant 
+\begin{align}
+    \mydet{ \frac{1037}{49} - \lambda & 0\\ 0 & \frac{2174}{49} - \lambda} &= 0\\
+	\implies \lambda^2 - \frac{286699}{637}\lambda + \sbrak{\frac{1037 \times 2174}{49^2}} &=0\label{eqroots}
+\end{align}
+The eigenvalues are the roots of equation \ref{eqroots} is given by 
+\begin{align}
+	\lambda_{11}&= \frac{2174}{49} \label{eqeig1}\\
+	\lambda_{12}&=\frac{1037}{49} \label{eqeig2}
+\end{align}
+The corresponding eigen vectors are, 
+\begin{align}
+	\vec{u}_{11} &=\myvec{0 \\ 1}\\
+	\vec{u}_{12} &=\myvec{1 \\ 0}
+\end{align}
+\begin{align}
+\therefore	\vec{V} &=\myvec{0 & 1\\1 & 0}
+\end{align}
+$\vec{S}$ is given by 
+\begin{align}
+	\vec{S}&=\myvec{\frac{\sqrt{2174}}{7} & 0\\ 0 & \frac{\sqrt{1037}}{7} \\ 0 &0}
+\end{align}
+\subsection{To get $\vec{U}$ }
+The characteristic equation of $\vec{M}\vec{M}^T$ is obtained by evaluating the determinant 
+\begin{align}
+    \mydet{\frac{1341}{49} - \lambda & \frac{30}{7} & \frac{108}{7}\\ \frac{30}{7} & \frac{449}{49} - \lambda & -\frac{75}{7} \\ \frac{108}{7} & -\frac{75}{7} & 29 - \lambda} &= 0\\
+	\implies -\lambda^3 + \frac{3211}{49}\lambda^2 - \frac{2254438}{2401} \lambda &=0 \label{equroots}
+\end{align}
+The eigenvalues are the roots of equation \ref{equroots} is given by 
+\begin{align}
+	\lambda_{21}&= \frac{2174}{49} \label{eqeig1}\\
+	\lambda_{22}&= \frac{1037}{49}\label{eqeig2}\\
+	\lambda_{23}&=0
+\end{align}
+The corresponding eigen vectors are , 
+\begin{align}
+	\vec{u}_{21}=\myvec{-\frac{6}{7}\\ \frac{1}{5}\\ -1},
+	\vec{u}_{22}=\myvec{-\frac{3}{2}\\ -\frac{10}{7}\\1},
+	\vec{u}_{23}=\myvec{-\frac{602}{747} \\ \frac{384}{249} \\ 1}
+\end{align}
+Normalizing the eigen vectors, 
+\begin{align}
+	\norm{\vec{u}_{21}} &=\sqrt{\left(\frac{-6}{7}\right)^2+\left(\frac{1}{5}\right)^2+1} =\frac{\sqrt{2174}}{35}\\
+	\implies \vec{u}_{21} &=\myvec{-\frac{210}{7 \sqrt{2174}} \\ \frac{35}{5 \sqrt{2176}} \\ -\frac{35}{\sqrt{2174}}}
+\end{align}
+\begin{align}
+	\norm{\vec{u}_{22}}&=\sqrt{\left(\frac{-3}{2}\right)^2+\left(\frac{-10}{7}\right)^2+1}=\frac{\sqrt{1037}}{14}\\
+	\implies \vec{u}_{22}&=\myvec{-\frac{42}{2\sqrt{1037}} \\ -\frac{20}{\sqrt{1037}} \\ \frac{14}{\sqrt{1037}}}
+\end{align}
+\begin{align}
+	\norm{\vec{u}_{23}} &=\sqrt{\left(\frac{-602}{747}\right)^2+\left(\frac{384}{249}\right)^2+1}= \frac{\sqrt{4027743}}{1000}\\
+	\implies \vec{u}_{23} &=\myvec{-\frac{602000}{747\sqrt{4027743}} \\ \frac{384000}{249\sqrt{4027743}}\\
+		                      \frac{1000}{\sqrt{4027743}}}
+\end{align}
+\begin{align}
+	\vec{U}=\myvec{\frac{-210}{7\sqrt{2174}} & \frac{-42}{2\sqrt{1037}} & \frac{-602000}{747\sqrt{4027743}} &\\ \frac{35}{5\sqrt{2174}}& \frac{-20}{\sqrt{1037}}&  \frac{384000}{249\sqrt{4027743}} \\
+		\frac{-35}{\sqrt{2174}}& \frac{14}{\sqrt{1037}} &   \frac{1000}{\sqrt{4027743}}}
+\end{align}
+\subsection{To get $\vec{x}$ }
+Using \eqref{main} we rewrite $\vec{M}$ as follows,
+\begin{multline}
+		\myvec{-3&-\frac{30}{7} \\-\frac{20}{7} & 1 \\ 2 & -5} =
+		\myvec{\frac{-210}{7\sqrt{2174}} & \frac{-42}{2\sqrt{1037}} & \frac{-602000}{747\sqrt{4027743}} &\\ \frac{35}{5\sqrt{2174}}& \frac{-20}{\sqrt{1037}}&  \frac{384000}{249\sqrt{4027743}} \\
+			\frac{-35}{\sqrt{2174}}& \frac{14}{\sqrt{1037}} &   \frac{1000}{\sqrt{4027743}}} \\
+    	\myvec{\frac{\sqrt{2174}}{7} & 0\\ 0 & \frac{\sqrt{1037}}{7} \\ 0 &0}
+		\myvec{0 & 1\\1 & 0}^T
+\end{multline}
+By substituting the equation \eqref{main} in equation \eqref{mx=b} we get 
+\begin{align}
+	\vec{U}\vec{S}\vec{V}^T\vec{x} & = \vec{b}\\
+	\implies\vec{x} &= \vec{V}\vec{S}_+\vec{U^T}\vec{b} \label{eqX}
+\end{align}
+where $\vec{S}_+$ is Moore-Penrose Pseudo-Inverse of $\vec{S}$
+\begin{align}
+	\vec{S}_+=\myvec{\frac{7}{\sqrt{2174}} & 0 & 0 \\ 0 & \frac{7}{\sqrt{1037}} & 0}
+\end{align}
+From \eqref{eqX} we get,
+\begin{align}
+	\vec{U}^T\vec{b}&=\myvec{\frac{-172}{\sqrt{2174}} \\ \frac{20}{\sqrt{1037}} \\ \frac{-115000}{747\sqrt{4027743}}}\\ 
+	\vec{S}_+\vec{U}^T\vec{b}&=\myvec{\frac{-602}{1087} \\ \frac{140}{1037}}\\
+	\vec{x} = \vec{V}\vec{S}_+\vec{U}^T\vec{b} &= \myvec{\frac{140}{1037} \\ \frac{-602}{1087}}\label{eqXSol1}
+\end{align}
+\subsection{Verification of $\vec{x}$}
+Verifying the solution of \eqref{eqXSol1} using,
+\begin{align}
+	\vec{M}^T\vec{M}\vec{x} = \vec{M}^T\vec{b}\label{eqVerify}
+\end{align}
+Evaluating the R.H.S in \eqref{eqVerify} we get,
+\begin{align}
+	\vec{M}^T\vec{M}\vec{x} &= \myvec{\frac{20}{7}\\ - \frac{172}{7}}\\
+	\implies\myvec{\frac{1037}{49} & 0 \\ 0 & \frac{2174}{49}}\vec{x} &= \myvec{\frac{20}{7}\\ -\frac{172}{7}}\label{eqMateq}
+\end{align}
+Solving the augmented matrix of \eqref{eqMateq} we get,
+\begin{align}
+	\myvec{\frac{1037}{49} & 0 & \frac{20}{7} \\ 0 & \frac{2174}{49} & -\frac{172}{7}} 
+	\xleftrightarrow[R_2 \leftarrow \frac{49}{2174}R_2]{R_1 \leftarrow \frac{49}{1037}R_1}
+	\myvec{1 & 0 & \frac{140}{1037} \\ 0 & 1 & -\frac{602}{1087}}
+\end{align}
+Hence, Solution of \eqref{eqVerify} is given by,
+\begin{align}
+	\vec{x}=\myvec{\frac{140}{1037} \\ \frac{-602}{1087}}\label{eqX2}
+\end{align}
+Comparing results of $\vec{x}$ from \eqref{eqXSol1} and \eqref{eqX2} we conclude that the solution is verified.
+\end{document}

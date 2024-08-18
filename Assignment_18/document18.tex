@@ -1,0 +1,276 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+
+\usepackage{setspace}
+\usepackage{gensymb}
+
+\singlespacing
+\usepackage{pstricks}
+\usepackage[cmex10]{amsmath}
+%\usepackage{amsthm}
+%\interdisplaylinepenalty=2500
+%\savesymbol{iint}
+%\usepackage{txfonts}
+%\restoresymbol{TXF}{iint}
+%\usepackage{wasysym}
+\usepackage{amsthm}
+%\usepackage{iithtlc}
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{stfloats}
+\usepackage{bm}
+\usepackage{cite}
+\usepackage{cases}
+\usepackage{subfig}
+%\usepackage{xtab}
+\usepackage{longtable}
+\usepackage{multirow}
+%\usepackage{algorithm}
+%\usepackage{algpseudocode}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{caption}
+\usepackage{steinmetz}
+\usepackage{tikz}
+%\usepackage{circuitikz}
+\usepackage{verbatim}
+\usepackage{tfrupee}
+\usepackage[breaklinks=true]{hyperref}
+%\usepackage{stmaryrd}
+\usepackage{tkz-euclide} % loads  TikZ and tkz-base
+%\usetkzobj{all}
+\usetikzlibrary{calc,math}
+\usepackage{listings}
+\usepackage{color}                                            %%
+\usepackage{array}                                            %%
+\usepackage{longtable}                                        %%
+\usepackage{calc}                                             %%
+\usepackage{multirow}                                         %%
+\usepackage{hhline}                                           %%
+\usepackage{ifthen}                                           %%
+%optionally (for landscape tables embedded in another document): %%
+\usepackage{lscape}     
+%\usepackage{multicol}
+\usepackage{chngcntr}
+\usepackage{makecell}
+\usepackage{booktabs, threeparttable}
+\usepackage{lipsum}
+%\usepackage{enumerate}
+%\usepackage{wasysym}
+%\newcounter{MYtempeqncnt}
+\DeclareMathOperator*{\Res}{Res}
+%\renewcommand{\baselinestretch}{2}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+\def\inputGnumericTable{}                                 %%
+\newcommand\myemptypage{
+	\null
+	\thispagestyle{empty}
+	\addtocounter{page}{-1}
+	\newpage
+}
+\lstset{
+	%language=C,
+	frame=single, 
+	breaklines=true,
+	columns=fullflexible
+}
+\usepackage{amssymb}
+\usepackage{stackengine}
+\usepackage{scalerel}
+\usepackage{graphicx}
+\usepackage{tabularx, ragged2e}
+\newcolumntype{C}{>{ \Centering \arraybackslash}X} %
+\frenchspacing
+\newlength\lthk
+\setlength\lthk{.1ex}
+\def\bline{\rule{2ex}{\lthk}}
+\def\slash{\rotatebox{60}{\bline}}
+\def\parallelogram{\stackMath\scalerel*{%
+		\def\stackalignment{l}{\stackunder[-.5\lthk]{%
+				\def\stackalignment{r}\stackon[-.5\lthk]{\slash\rule{.866ex}{0ex}\slash}{\bline}}%
+			{\bline}}}{\square}%
+}
+
+\begin{document}
+	%
+	
+	
+	\newtheorem{theorem}{Theorem}[section]
+	\newtheorem{problem}{Problem}
+	\newtheorem{proposition}{Proposition}[section]
+	\newtheorem{lemma}{Lemma}[section]
+	\newtheorem{corollary}[theorem]{Corollary}
+	\newtheorem{example}{Example}[section]
+	\newtheorem{definition}[problem]{Definition}
+	
+	\newcommand{\BEQA}{\begin{eqnarray}}
+		\newcommand{\EEQA}{\end{eqnarray}}
+	\newcommand{\define}{\stackrel{\triangle}{=}}
+	\bibliographystyle{IEEEtran}
+	%\bibliographystyle{ieeetr}
+	\providecommand{\mbf}{\mathbf}
+	\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+	\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+	\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+	\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+	\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+	\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+	\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+	\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+	\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+	\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+	\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+	\theoremstyle{remark}
+	\newtheorem{rem}{Remark}
+	\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+	\providecommand{\abs}[1]{\left\vert#1\right\vert}
+	\providecommand{\res}[1]{\Res\displaylimits_{#1}} 
+	\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+	%\providecommand{\norm}[1]{\lVert#1\rVert}
+	\providecommand{\mtx}[1]{\mathbf{#1}}
+	\providecommand{\mean}[1]{E\left[ #1 \right]}
+	\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
+	%\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
+	\providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
+	%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
+	\newcommand{\solution}{\noindent \textbf{Solution: }}
+	\newcommand{\cosec}{\,\text{cosec}\,}
+	\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
+	\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+	\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+	%\numberwithin{equation}{section}
+	\numberwithin{equation}{subsection}
+	%\numberwithin{problem}{section}
+	%\numberwithin{definition}{section}
+	\makeatletter
+	\@addtoreset{figure}{problem}
+	\makeatother
+	\let\StandardTheFigure\thefigure
+	\let\vec\mathbf
+	%\renewcommand{\thefigure}{\theproblem.\arabic{figure}}
+	\renewcommand{\thefigure}{\theproblem}
+	%\setlist[enumerate,1]{before=\renewcommand\theequation{\theenumi.\arabic{equation}}
+	%\counterwithin{equation}{enumi}
+	%\renewcommand{\theequation}{\arabic{subsection}.\arabic{equation}}
+	\def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
+	\def\rightbox#1{\makebox[0in][r]{#1}}
+	\def\centbox#1{\makebox[0in]{#1}}
+	\def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
+	\def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
+	\vspace{3cm}
+	\title{Assignment-18}
+	\author{Pooja H}
+	\maketitle
+	\newpage
+	\bigskip
+	\renewcommand{\thefigure}{\theenumi}
+	\renewcommand{\thetable}{\theenumi}
+	\begin{abstract}
+		In this document, we explore the properties of eigenvalues of non-diagonalizable matrices.
+	\end{abstract}
+	%Download all python codes from 
+	%\begin{lstlisting}
+	%	https://github.com/poojah15/EE5609_Assignments/tree/master/Assignment_13
+	%\end{lstlisting}
+	Download all latex-tikz codes from 
+\begin{lstlisting}
+https://github.com/poojah15/EE5609_Assignments/tree/master/Assignment_18
+\end{lstlisting}
+	\section{Problem Statement}
+
+Let $\vec{A}$ and $\vec{B}$ be $n \times n$ matrices over $\vec{C}$. Then,
+\begin{enumerate}
+	\item $\vec{AB}$ and $\vec{BA}$ always have the same set of eigenvalues.
+	\item If $\vec{AB}$ and $\vec{BA}$ have the same set of eigenvalues then $\vec{AB=BA}$
+	\item If $\vec{A}^{-1}$ exists, then $\vec{AB}$ and $\vec{BA}$ are similar
+	\item The rank of $\vec{AB}$  is always the same as the rank of $\vec{BA}$.
+\end{enumerate}
+
+\section{Answers for different cases}
+\pagebreak
+\myemptypage
+\begin{table}[h]
+	\begin{tabular}{|m{3cm}|m{14cm}|}
+		\hline
+		&\\
+		$\vec{AB}$ and $\vec{BA}$ always have the same set of eigenvalues.
+		& \textbf{True}. \\
+		& Let  $\lambda$  be an eigenvalue of  $\vec{AB}$, and $\vec{x}$  be a corresponding eigenvector.\\
+		&Then \\
+		& \qquad\qquad\qquad$\vec{AB} \vec{x}$=$\lambda \vec{x}$ \\
+		& Left-multiplying by $\vec{B}$:\\
+		&\qquad\qquad\qquad$\vec{B(AB)}\vec{x}$ = $\vec{B}(\lambda \vec{x})$\\
+		& \qquad\qquad\qquad$\vec{(BA)}\vec{Bx}=\lambda(\vec{B}\vec{x})$  (by associativity of multiplication)\\
+	    & $\implies  \lambda $ is an eigenvalue of  $\vec{BA}$  with  $\vec{B}\vec{x}$  as the corresponding eigenvector, assuming  $\vec{B}\vec{x}$  is not a null vector.\\
+		&If  $\vec{B}\vec{x}$   is null, then  $\vec{B}$   is singular, so that both  $\vec{AB}$ and  $\vec{BA}$ are singular, and  $\lambda=0$. Since both the products are singular,  0  is an eigenvalue of both.\\
+		&\\
+		& Example:\\
+		& Let \\
+		&\qquad\qquad\qquad$\vec{A} = \myvec{1 & 0 \\ 1 & 1}, \vec{B} = \myvec{2 & -2 \\ 2 & -2}$\\
+		&Then\\
+		& \qquad\qquad\qquad$\vec{AB} = \myvec{2 & -2 \\ 4 & -4}, \vec{BA} = \myvec{0 & -2 \\ 0 & -2}$\\
+		& Since $\vec{AB}$ and $\vec{BA}$ results with the same characteristic equation,\\
+		& \qquad\qquad\qquad $\lambda^2 + 2\lambda = 0$\\
+		&they will have same set of eigenvalues that is $\lambda_1 = 0, \lambda_2 = -2$\\
+		& \\
+		\hline
+		&\\
+		If $\vec{AB}$ and $\vec{BA}$ have the same set of eigenvalues then $\vec{AB=BA}$
+		& \textbf{False}. \\
+		&Counter example:\\
+		& Let\\
+		& \qquad\qquad\qquad$\vec{A} = \myvec{1 & 0 \\ 1 & 1}, \vec{B} = \myvec{2 & -2 \\ 2 & -2}$\\
+	    &then\\
+	    & \qquad\qquad\qquad$\vec{AB} = \myvec{2 & -2 \\ 4 & -4}, \vec{BA} = \myvec{0 & -2 \\ 0 & -2}$\\
+        & $\implies$ Same eigenvalues $\brak{\lambda_1 = 0, \lambda_2 = -2}$, but $\vec{AB} \ne \vec{BA}$
+		\\
+		&\\
+		\hline
+			\end{tabular}
+	\end{table}
+\pagebreak
+\myemptypage
+\begin{table}[h]
+	\begin{tabular}{|m{3cm}|m{14cm}|}
+		\hline
+		&\\
+	    If $\vec{A}^{-1}$ exists, then $\vec{AB}$ and $\vec{BA}$ are similar
+		& \textbf{True}. \\
+		& Given that $\vec{A}^{-1}$ exists and hence,\\
+		&\qquad\qquad\qquad $\vec{AB}$ = $\vec{A}^{-1}\vec{(AB)A}$ =  $\vec{(A^{-1}A)}\vec{BA}$ = $\vec{BA}$.\\
+		& Hence, $\vec{AB} \simeq \vec{BA}$ \\
+		&\\
+		&Example:\\
+		& Let\\
+		& \qquad\qquad\qquad$\vec{A} = \myvec{1 & 0 \\ 1 & 1}, \vec{B} = \myvec{2 & -2 \\ 2 & -2}$\\
+		&then\\
+		& \qquad\qquad\qquad$\vec{AB}$\quad= $\myvec{2 & -2 \\ 4 & -4} = \vec{A}^{-1} (\vec{AB})\vec{A}$\\
+		&  \qquad\qquad\qquad  \qquad\qquad\qquad\quad= $\myvec{1 & 0\\ -1 & 1}\myvec{2 & -2 \\ 4 & -4}\myvec{1 & 0 \\ 1 & 1}$\\
+		&  \qquad\qquad\qquad \qquad\qquad\qquad\quad=$\myvec{0 & -2 \\ 0 & -2} $\\
+		&  \qquad\qquad\qquad \qquad\qquad\qquad\quad= $\vec{BA}$\\
+		&\\
+		\hline
+		&\\
+	    The rank of $\vec{AB}$  is always the same as the rank of $\vec{BA}$.
+		& \textbf{False}. \\
+		&Counter example:\\
+		& Let\\
+		& \qquad\qquad\qquad$\vec{A}$ = $\myvec{1 & 0 & 0 \\ 0 &1 & 0\\ 0 & 0 & 0}$ , 
+		$\vec{B}$ = $\myvec{0& 1 & 0 \\ 0 & 0 & 1\\ 0 & 0 & 0}$\\
+		&then\\
+		& \qquad\qquad\qquad$\vec{AB}$ = $\myvec{0 & 1 & 0 \\ 0 & 0 & 1\\ 0 & 0 & 0}$ ,  $\vec{BA}$ = $\myvec{0 & 1  & 0\\ 0 & 0 & 0\\ 0 & 0 & 0}$\\
+		& From the above $\vec{AB}$ and $\vec{BA}$, it is noted that the rank$\brak{\vec{AB}}$ = 2 and rank$\brak{\vec{BA}}$=1. \\
+		& Hence the rank of $\vec{AB}$ need not always be same as rank of $\vec{BA}$.
+		\\
+		\hline
+	\end{tabular}
+\end{table}
+\end{document}
